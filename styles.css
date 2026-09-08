@@ -1,14 +1,19 @@
 
   :root{
-    --ink:#14131f;
-    --ink-soft:#211f30;
-    --bone:#f2efe6;
-    --bone-dim:#c9c6bc;
-    --cobalt:#4864ff;
-    --gold:#e2ac4c;
-    --rule: rgba(242,239,230,0.14);
-    --maxw: 1180px;
-  }
+  --ink:#14131f;
+  --ink-soft:#211f30;
+  --bone:#f2efe6;
+  --bone-dim:#c9c6bc;
+
+  --cobalt:#8FC6A3;
+  --green-hover:#78B88F;
+  --green-light:#DCEDE1;
+
+  --gold:#8FC6A3;
+
+  --rule:rgba(242,239,230,0.14);
+  --maxw:1180px;
+}
 
   .cs-viewmore{
   display:inline-block;
@@ -55,9 +60,9 @@
   }
 
   a:focus-visible, button:focus-visible{
-    outline:2px solid var(--gold);
-    outline-offset:3px;
-  }
+  outline:2px solid var(--cobalt);
+  outline-offset:3px;
+}
 
   /* ---------- layout shell ---------- */
 
@@ -102,10 +107,11 @@
     border-bottom:1px solid transparent;
     transition:color .2s ease, border-color .2s ease;
   }
+
   .side-nav a:hover, .side-nav a:focus-visible{
-    color:var(--bone);
-    border-color:var(--gold);
-  }
+  color:var(--bone);
+  border-color:var(--cobalt);
+}
 
   .side-bottom{
     font-size:0.85rem;
@@ -115,9 +121,12 @@
     display:flex; align-items:center; gap:8px; margin-bottom:10px;
   }
   .status .dot{
-    width:7px; height:7px; border-radius:50%; background:var(--gold);
-    box-shadow:0 0 0 3px rgba(226,172,76,0.18);
-  }
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--cobalt);
+  box-shadow:0 0 0 3px rgba(143,198,163,0.18);
+}
 
   main{ min-width:0; }
 
@@ -359,7 +368,9 @@
     border-radius:100px;
     cursor:pointer;
   }
-  .lightbox-close:hover{ border-color:var(--gold); }
+  .lightbox-close:hover{
+  border-color:var(--cobalt);
+}
 
   .lightbox-caption{
     padding:20px 22px 24px;
