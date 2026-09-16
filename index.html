@@ -105,6 +105,91 @@
 
       <div class="work-panel gallery" id="panel-graphic-design" role="tabpanel" aria-labelledby="tab-graphic-design" hidden>
 
+        <button class="gallery-item" data-title="Social Media" data-meta="Media- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Owaambe.jpg" alt="Typography">
+          </div>
+          <span class="gallery-cap"><strong>Weekend</strong><em>Social Media — 2026</em></span>
+        </button>
+
+          <button class="gallery-item" data-title="Magazine" data-meta="Cover- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Purpose.jpg" alt="Cover Art">
+          </div>
+          <span class="gallery-cap"><strong>Magazine</strong><em>Fashion Cover — 2026</em></span>
+        </button>
+
+         <button class="gallery-item" data-title="Magazine" data-meta="Cover- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Nosteps.jpg" alt="Cover Art">
+          </div>
+          <span class="gallery-cap"><strong>Magazine</strong><em>Fashion Cover — 2026</em></span>
+        </button>
+
+         <button class="gallery-item" data-title="Magazine" data-meta="Cover- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/rougge.jpg" alt="Cover Art">
+          </div>
+          <span class="gallery-cap"><strong>Magazine</strong><em>Fashion Cover — 2026</em></span>
+        </button>
+
+
+          <button class="gallery-item" data-title="New Perspective" data-meta="Impact— 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Happy-New-Mo0nth.jpg" alt="Typography">
+          </div>
+          <span class="gallery-cap"><strong>New Month</strong><em>Impact Design — 2026</em></span>
+        </button>
+
+          <button class="gallery-item" data-title="New Perspective" data-meta="Typography — 2026">
+          <div class="gallery-panel" id="g-panel-10">
+             <img src="images/Graphics/Pressure.jpg" alt="Typography">
+          </div>
+          <span class="gallery-cap"><strong>Pressure</strong><em>Bold Design — 2026</em></span>
+        </button>
+
+             <button class="gallery-item" data-title="New Perspective" data-meta="Typography — 2026">
+  <div class="gallery-panel" id="g-panel-9">
+    <img
+      src="images/Graphics/One-leap.jpg"
+      alt="New Perspective brand identity"
+    >
+  </div>
+
+  <span class="gallery-cap">
+    <strong>New Perspective</strong>
+    <em>Brand identity — 2026</em>
+  </span>
+</button>
+
+  <button class="gallery-item" data-title="Brand Identity" data-meta="Branding- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Brand1.png" alt="Social Media">
+          </div>
+          <span class="gallery-cap"><strong>Brand Identity</strong><em>Branding — 2026</em></span>
+        </button>
+
+        <button class="gallery-item" data-title="Brand Identity" data-meta="Branding- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Brand2.png" alt="Social Media">
+          </div>
+          <span class="gallery-cap"><strong>Brand Identity</strong><em>Branding — 2026</em></span>
+        </button>
+
+        <button class="gallery-item" data-title="Brand Identity" data-meta="Branding- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Brand3.png" alt="Brand">
+          </div>
+          <span class="gallery-cap"><strong>Brand Identity</strong><em>Branding — 2026</em></span>
+        </button>
+
+         <button class="gallery-item" data-title="Social Media" data-meta="Social- 2026">
+          <div class="gallery-panel" id="g-panel-11">
+             <img src="images/Graphics/Farmer.jpg" alt="Social Media">
+          </div>
+          <span class="gallery-cap"><strong>Social Media</strong><em>Social Post — 2026</em></span>
+        </button>
+
         <button class="gallery-item" data-title="Fashion Statemnemt" data-meta="Poster series — 2025">
           <div class="gallery-panel" id="g-panel-1">
             <img src="images/Graphics/IMG_5714.jpeg" alt="Undertow">
@@ -223,6 +308,7 @@
     { id:'g-panel-6', colors:['#101226', '#7d90ff', '#4864ff'], seed:14 },
     { id:'g-panel-7', colors:['#181722', '#f2efe6', '#a97c3a'], seed:21 },
     { id:'g-panel-8', colors:['#22201a', '#a97c3a', '#e2ac4c'], seed:9 },
+    { id:'g-panel-9', colors:['#22201a', '#a97c3a', '#e2ac4c'], seed:2 }
   ];
   galleryPieces.forEach(p => paintPanel(p.id, p.colors, p.seed));
 
@@ -254,20 +340,27 @@
   const lightboxMeta = document.getElementById('lightbox-meta');
   let lastFocused = null;
 
-  document.querySelectorAll('.gallery-item').forEach((item, i) => {
-    item.addEventListener('click', () => {
-      lastFocused = item;
-      const piece = galleryPieces[i];
-      lightboxTitle.textContent = item.dataset.title;
-      lightboxMeta.textContent = item.dataset.meta;
-      lightboxPanel.innerHTML = '';
-      const clone = document.getElementById(piece.id).cloneNode(true);
-      clone.removeAttribute('id');
-      lightboxPanel.appendChild(clone);
-      lightbox.hidden = false;
-      lightbox.querySelector('.lightbox-close').focus();
-    });
+ document.querySelectorAll('.gallery-item').forEach(item => {
+  item.addEventListener('click', () => {
+    lastFocused = item;
+
+    lightboxTitle.textContent = item.dataset.title;
+    lightboxMeta.textContent = item.dataset.meta;
+
+    lightboxPanel.innerHTML = '';
+
+    // Get the actual panel from the item that was clicked
+    const panel = item.querySelector('.gallery-panel');
+    const clone = panel.cloneNode(true);
+
+    clone.removeAttribute('id');
+
+    lightboxPanel.appendChild(clone);
+
+    lightbox.hidden = false;
+    lightbox.querySelector('.lightbox-close').focus();
   });
+});
 
   function closeLightbox(){
     lightbox.hidden = true;
