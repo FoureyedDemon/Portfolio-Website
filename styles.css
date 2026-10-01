@@ -598,6 +598,43 @@
     overflow:hidden;
   }
 
+  .cs-panel img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  }
+
+  .cs-gallery{
+    padding-top:16px;
+    padding-bottom:0;
+  }
+  .cs-gallery .cs-panel{
+    margin-top:32px;
+    aspect-ratio:auto;      /* let the image decide its own height (no 16:9 crop) */
+  }
+  .cs-gallery .cs-panel img{
+    height:auto;
+    object-fit:contain;
+  }
+  .cs-gallery .cs-panel:first-child{
+    margin-top:0;
+  }
+  .cs-gallery figcaption{
+    margin:10px 0 0;
+    color:var(--bone-dim);
+    font-size:0.85rem;
+  }
+  .cs-gallery figure{
+    margin:32px 0 0;
+  }
+  .cs-gallery figure:first-child{
+    margin-top:0;
+  }
+  .cs-gallery figure .cs-panel{
+    margin-top:0;
+  }
+
   .cs-body{
     padding-top:16px;
     display:grid;
